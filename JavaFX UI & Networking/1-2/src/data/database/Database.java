@@ -1,5 +1,7 @@
 package data.database;
 
+import server.ClientInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 

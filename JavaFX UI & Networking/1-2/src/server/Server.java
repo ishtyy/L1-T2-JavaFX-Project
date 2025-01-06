@@ -16,6 +16,7 @@ public class Server {
     private FileOperations fileOperations;
     volatile private List<Player> transferPlayerList;
     volatile private HashMap<String, ClientInfo> clientMap;
+    volatile private HashMap<String,List<String>> notificationMap;
 
     public static void main(String[] args) {
         int port = 45045;
@@ -25,6 +26,7 @@ public class Server {
     public Server(int port) {
         clientMap = new HashMap<>();
         transferPlayerList = new ArrayList<>();
+        notificationMap = new HashMap<>();
         try {
             loadDatabase();
             ServerSocket serverSocket = new ServerSocket(port);
@@ -36,6 +38,17 @@ public class Server {
         } catch (IOException e) {
 //            e.printStackTrace();
 //            System.out.println("this is exception while connecting");
+        }
+    }
+    synchronized public void addNotification(String clubName, String notification){
+        System.out.println(notification);
+        if(notificationMap.containsKey(clubName)){
+            notificationMap.get(clubName).add(notification);
+        }
+        else{
+            List<String> list = new ArrayList<>();
+            list.add(notification);
+            notificationMap.put(clubName, list);
         }
     }
 
@@ -60,10 +73,8 @@ public class Server {
         try {
             String clubName = db.searchPlayerByName(playerName).getClub();
             //send an alert message to the club that the player has been sold to the newClubName
-            ClientInfo clientInfo = clientMap.get(clubName);
-            if (clientInfo != null) {
-                clientInfo.getNetworkUtil().write("Player " + playerName + " has been sold to " + newClubName);
-            }
+
+
             Player player = db.searchPlayerByName(playerName);
             if (player.isInTransferList()) {
                 transferPlayerList.remove(player);
@@ -78,6 +89,13 @@ public class Server {
             e.printStackTrace();
         }
         return b;
+    }
+    synchronized public List<String> getNotification(String clubName){
+        if(notificationMap.containsKey(clubName)){
+            return notificationMap.get(clubName);
+        }else{
+            return null;
+        }
     }
 
     synchronized public boolean addToTransferWindow(String playerName, long playerPrice) {

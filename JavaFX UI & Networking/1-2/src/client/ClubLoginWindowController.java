@@ -87,6 +87,7 @@ public class ClubLoginWindowController {
         clubList.forEach(e -> {
             if (e instanceof String) {
                 usernameChoiceBox.getItems().add((String) e);
+
             }
         });
     }

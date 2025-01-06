@@ -6,11 +6,9 @@ public class Server {
 
     static FileHandler FH;
     public Server(Database db) {
+
         initialize(db);
     }
-
-
-
 
     public static void initialize(Database db) {
         System.out.println("Initializing PlayerList");
@@ -19,8 +17,6 @@ public class Server {
         System.out.println("Done");
        // db.getPlayerList().forEach(System.out::println);
        // System.out.println("sesh");
-
-
 
     }
 }

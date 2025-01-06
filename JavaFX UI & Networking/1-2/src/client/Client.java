@@ -22,6 +22,7 @@ public class Client extends Application {
 
     private NetworkUtil networkUtil;
     private TransferWindowRefreshThread refreshThread;
+    private NotificationThread notificationThread;
 
 
     private void connectToServer() throws IOException {
@@ -311,5 +312,25 @@ public class Client extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public List<String> loadNotification(String clubName) {
+        try {
+            networkUtil.write(new Message(MessageHeader.NOTIFICATION, clubName));
+            Object obj = networkUtil.read();
+            if (obj instanceof List) {
+                return (List<String>) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void startNotificationThread(ClubHomeWindowController clubHomeWindowController) {
+         notificationThread = new NotificationThread(clubHomeWindowController);
+    }
+    public void interruptNotificationThread() {
+        if (notificationThread != null) notificationThread.getThread().interrupt();
     }
 }

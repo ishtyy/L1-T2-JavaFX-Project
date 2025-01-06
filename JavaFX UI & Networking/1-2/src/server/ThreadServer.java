@@ -38,6 +38,8 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.logoutClub(msg.getMessage()));
                     } else if (msg.getMessageHeader() == MessageHeader.CLUB_LIST) {
                         networkUtil.write(server.sendClubList());
+                    }else if(msg.getMessageHeader() == MessageHeader.NOTIFICATION){
+                        networkUtil.write(server.getNotification(msg.getMessage()));
                     }
                 } else if (obj instanceof LoginInfo) {
                     LoginInfo loginInfo = (LoginInfo) obj;
@@ -54,8 +56,14 @@ public class ThreadServer implements Runnable {
                     BuyInfo buyInfo = (BuyInfo) obj;
                     if (buyInfo.getMessageHeader() == MessageHeader.BUY) {
 //                        System.out.println("buy info object received");
+                        server.addNotification(buyInfo.getClubName(),buyInfo.getPlayerName() + " has been bought by " + buyInfo.getClubName());
+                        String clubName = server.db.searchPlayerByName(buyInfo.getPlayerName()).getClub();
+                        server.addNotification(clubName,buyInfo.getPlayerName() + " has been sold to " + buyInfo.getClubName());
+                        server.addNotification("ANY",buyInfo.getPlayerName() + " has been sold to " + buyInfo.getClubName() + " from " + clubName);
+                        System.out.println(buyInfo.getClubName() + " has bought " + buyInfo.getPlayerName());
+
                         networkUtil.write(server.sellPlayer(buyInfo.getPlayerName(), buyInfo.getClubName()));
-                    }
+                       }
                 } else if (obj instanceof SaleInfo) {
                     SaleInfo saleInfo = (SaleInfo) obj;
                     if (saleInfo.getMessageHeader() == MessageHeader.SELL) {

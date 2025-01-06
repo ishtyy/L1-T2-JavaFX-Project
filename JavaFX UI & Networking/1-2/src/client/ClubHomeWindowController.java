@@ -115,8 +115,10 @@ public class ClubHomeWindowController {
     @FXML
     private Button add;
 
+    @FXML
+    private Button notificationButton;
 
-
+    private Stage notificationStage;
     private Player player;
      Club club;
      Club notClub;
@@ -392,6 +394,10 @@ public class ClubHomeWindowController {
 
     private void makeMenu() {
         clubMenuButton.setText(clubName);
+
+
+        // Optionally set a Tooltip for full message display
+
 
         ImageView imageView = new ImageView(new Image((club.getImgSource())));
         imageView.setFitHeight(25);
@@ -704,4 +710,61 @@ public class ClubHomeWindowController {
     }
 
 
+
+    public void loadNotification() {
+        List<String> notifications = client.loadNotification(clubName);
+        try {
+            if (notificationStage == null || !notificationStage.isShowing()) {
+                // Create a new stage if it doesn't exist or is closed
+                notificationStage = new Stage();
+                notificationStage.initModality(Modality.APPLICATION_MODAL);
+                notificationStage.setTitle("Notification");
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/views/notifications.fxml"));
+                Parent root = fxmlLoader.load();
+
+                NotificationsController notificationController = fxmlLoader.getController();
+                notificationController.setClient(client);
+                notificationController.loadNotifications(notifications);
+                notificationStage.setOnCloseRequest(event -> {
+                    client.interruptNotificationThread(); // Ensure thread interruption
+                    notificationStage = null; // Set stage to null for future recreation
+                });
+
+
+                Scene scene = new Scene(root);
+                notificationStage.setScene(scene);
+                notificationStage.show();
+            } else {
+                // Update the existing stage's content
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/views/notifications.fxml"));
+                Parent root = fxmlLoader.load();
+
+                NotificationsController notificationController = fxmlLoader.getController();
+                notificationController.setClient(client);
+                notificationController.loadNotifications(notifications);
+                notificationStage.setOnCloseRequest(event -> {
+                    client.interruptNotificationThread(); // Ensure thread interruption
+                    notificationStage = null; // Set stage to null for future recreation
+                });
+
+
+                Scene scene = new Scene(root);
+                notificationStage.setScene(scene);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void showNotification(ActionEvent event) {
+        client.startNotificationThread(this);
+
+
+
+
+    }
 }

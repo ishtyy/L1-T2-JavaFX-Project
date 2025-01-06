@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a546ba85-0c99-40d3-87fb-5fa1d433e810" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/player.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/ClubCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/ClubHomeWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/ClubListViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/ClubLoginWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/ClubRegWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/FileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/FileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/NotificationCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/NotificationThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/NotificationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/PlayerAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/PlayerCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/PlayerDetailsWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/PlayerListViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/SaleConfirmationWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/TransferWindowRefreshThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/database/Club.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/database/Country.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/database/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/database/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/BuyInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/Cancel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/LoginInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/MessageHeader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/network/SaleInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/ANY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Chennai_Super_Kings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Delhi_Capitals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Gujarat_Titans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Kolkata_Knight_Riders.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Lucknow_Super_Giants.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/MainMenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Mumbai_Indians.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Punjab_Kings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Rajasthan_Royals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Royal_Challengers_Bangalore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/Sunrisers_Hyderabad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/logo/unknown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/player/unknown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/ClientInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/FileOperations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/ThreadServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/clubHomeWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/NetworkUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/clubCard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/clubHomeWindow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/clubListView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/clubLoginWindow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/clubRegWindow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/notificationCard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/notifications.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/playerAdd.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/playerCard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/playerDetailsWindow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/playerListView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/saleConfirmationWindow.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2rEQCGp3wwrT54jGQumSLCcOJOU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.Server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/HP/OneDrive/Desktop/1-2 (4)/1-2/src/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\OneDrive\Desktop\1-2 (4)\1-2\src\views" />
+      <recent name="C:\Users\HP\OneDrive\Desktop\1-2 (4)\1-2\src\client" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.Client" />
+      <module name="1-2" />
+      <option name="VM_PARAMETERS" value="--module-path D:\Projects\javafx-sdk-21.0.5\lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.media" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
+      <module name="1-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a546ba85-0c99-40d3-87fb-5fa1d433e810" name="Changes" comment="" />
+      <created>1736121983692</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736121983692</updated>
+      <workItem from="1736121985112" duration="12852000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

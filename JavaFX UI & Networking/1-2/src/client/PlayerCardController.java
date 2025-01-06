@@ -186,9 +186,6 @@ public class PlayerCardController {
 
     }
 
-
-
-
     public ClubHomeWindowController getClubHomeWindowController() {
         return clubHomeWindowController;
     }

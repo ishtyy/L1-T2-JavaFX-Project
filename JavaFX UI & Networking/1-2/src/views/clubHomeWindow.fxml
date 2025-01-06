@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" styleClass="window" stylesheets="@/styles/clubHomeWindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubHomeWindowController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox fx:id="leftVBox" prefHeight="600.0" prefWidth="334.0" style="-fx-background-color: #141416; -fx-border-color: #E7DDFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="56.0" prefWidth="334.0">
+                     <children>
+                        <MenuButton fx:id="clubMenuButton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: #E7DDFF; -fx-background-radius: 20;" stylesheets="@../styles/clubHomeWindow.css" text="Chennai Super Kings">
+                           <items>
+                              <MenuItem fx:id="usernameMenuItem" disable="true" mnemonicParsing="false" text="Signed in as Chennai Super Kings" />
+                              <SeparatorMenuItem mnemonicParsing="false">
+                                 <content>
+                                    <MenuButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" popupSide="RIGHT" style="-fx-background-color: #E7DDFF;" text="Statistics">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#listMaxAgePlayers" text="Maximum Age" />
+                                          <MenuItem mnemonicParsing="false" onAction="#listMaxHeightPlayers" text="Maximum Height" />
+                                          <MenuItem mnemonicParsing="false" onAction="#listMaxSalaryPlayers" text="Maximum Salary" />
+                                          <MenuItem mnemonicParsing="false" onAction="#showTotalYearlySalary" text="Total Yearly Salary" />
+                                       </items>
+                                    </MenuButton>
+                                 </content>
+                              </SeparatorMenuItem>
+                              <MenuItem mnemonicParsing="false" text="Change Password" visible="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#logoutClub" text="Sign out" />
+                           </items>
+                        </MenuButton>
+                        <Button fx:id="home" layoutX="248.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#showHome" prefHeight="33.0" prefWidth="70.0" style="-fx-background-color: #98F5F9; -fx-background-radius: 7;" text="🏠 Home" />
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER" prefHeight="215.0" prefWidth="334.0">
+                     <children>
+                        <ImageView fx:id="clubLogoImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/logo/ANY.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets top="70.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefWidth="331.0">
+                     <children>
+                        <Label fx:id="clubNameFirstLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@/styles/clubHomeWindow.css" text="IPL" textAlignment="CENTER" textFill="#e97141">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="235.0">
+                     <children>
+                        <Label fx:id="clubNameSecondLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@../styles/clubHomeWindow.css" text="DASHBOARD" textAlignment="CENTER" textFill="#e97141" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="11.0" layoutY="363.0">
+                     <children>
+                        <Label fx:id="clubNameSecondLine1" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@../styles/clubHomeWindow.css" text="Line 3" textAlignment="CENTER" textFill="#e97141" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="searchPlayerNameTextField" prefHeight="47.0" prefWidth="288.0" promptText="Type Player's Name..." style="-fx-background-radius: 50; -fx-background-color: #CECECE;" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="70.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="44.0" prefWidth="334.0">
+                     <children>
+                        <Button fx:id="add" mnemonicParsing="false" onMouseClicked="#playerAdd" prefHeight="28.0" prefWidth="52.0" style="-fx-background-radius: 15; -fx-background-color: #FFECA1;" text="+ ADD">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="searchPlayerNameButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#searchPlayerByName" prefHeight="31.0" prefWidth="55.0" style="-fx-background-radius: 20; -fx-background-color: #37DA22;" text="Search" textAlignment="RIGHT">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="3.0" right="5.0" top="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="150.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="resetPlayerNameButton" mnemonicParsing="false" onAction="#resetPlayerNameTextField" prefHeight="31.0" prefWidth="47.0" style="-fx-background-radius: 20; -fx-background-color: #EC3B3B;" text="Clear">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="buyPlayerButton" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showTransferWindow" style="-fx-background-color: #FFECA1; -fx-background-radius: 20;" text="Buy Player" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="100.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox fx:id="bodyVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="clubListHBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="775.0" style="-fx-background-color: #0C0B2E; -fx-border-color: #FFFFFF;" VBox.vgrow="ALWAYS" />
+                  <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #5F141E; -fx-border-color: #FFFFFF;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox fx:id="playerListVBox" minWidth="-Infinity" prefHeight="556.0" prefWidth="522.0" style="-fx-background-color: #13113D;" HBox.hgrow="ALWAYS" />
+                        <VBox fx:id="rightVBox" alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" style="-fx-border-color: #FFFFFF;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="55.0" minHeight="-Infinity" prefHeight="125.0" prefWidth="259.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox layoutY="30.0" maxHeight="204.0" prefHeight="101.0" prefWidth="208.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <TreeView fx:id="filterTreePosition" minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="222.0" style="-fx-background-color: #FFDE59;" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets left="15.0" right="15.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </TreeView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="positionLabel" layoutX="24.0" style="-fx-background-color: #335FC5; -fx-background-radius: 5;" text="POSITION" textFill="#ebebeb" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="191.0" prefWidth="259.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox layoutY="47.0" maxHeight="314.0" minHeight="-Infinity" prefHeight="163.0" prefWidth="259.0" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="47.0">
+                                       <children>
+                                          <TreeView fx:id="filterTreeCountry" minHeight="-Infinity" prefHeight="165.0" prefWidth="219.0" style="-fx-background-color: #FFDE59;" HBox.hgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </TreeView>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="countryLabel" layoutX="21.0" layoutY="16.0" style="-fx-background-color: #335FC5; -fx-background-radius: 5;" text="COUNTRY" textFill="#f6f2f2">
+                                       <padding>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="-Infinity" prefHeight="209.0" prefWidth="259.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox layoutX="5.0" layoutY="14.0" prefHeight="198.0" prefWidth="247.0">
+                                       <children>
+                                          <HBox minHeight="-Infinity" prefHeight="33.0" prefWidth="247.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="ageLabel" style="-fx-background-color: #335FC5; -fx-background-radius: 5;" text="Age" textFill="#f4efef" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                   </padding>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="ageFromTextField" prefHeight="25.0" prefWidth="89.0" promptText="From (years)" style="-fx-background-color: #E8E8E8; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </padding>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="5.0" right="5.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="ageToTextField" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="78.0" promptText="To (years)" style="-fx-background-radius: 5; -fx-background-color: #E8E8E8;" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="5.0" right="10.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox minHeight="-Infinity" prefHeight="15.0" prefWidth="247.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="heightLabel" style="-fx-background-color: #335FC5; -fx-background-radius: 5;" text="Height" textFill="#fdfcfc" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </padding>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" right="7.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="heightFromTextField" prefHeight="25.0" prefWidth="89.0" promptText="From (meters)" style="-fx-background-color: #E8E8E8; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" right="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="heightToTextField" prefHeight="25.0" prefWidth="78.0" promptText="To (meters)" style="-fx-background-color: #E8E8E8; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="10.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox minHeight="-Infinity" prefHeight="26.0" prefWidth="247.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="salaryLabel" style="-fx-background-color: #335FC5; -fx-background-radius: 5;" text="Salary" textFill="#fffbfb" HBox.hgrow="ALWAYS">
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </padding>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="3.0" right="9.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="salaryFromTextField" prefHeight="25.0" prefWidth="89.0" promptText="From (USD)" style="-fx-background-color: #E8E8E8; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets right="15.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="salaryToTextField" prefHeight="25.0" prefWidth="78.0" promptText="To (USD)" style="-fx-background-color: #E8E8E8; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets right="10.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="52.0" prefWidth="247.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Button fx:id="applyFiltersButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#applyFilters" style="-fx-background-color: #67CC3F; -fx-background-radius: 10;" text="Apply Filters" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="20.0" right="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="resetFiltersButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetFilters" style="-fx-background-color: #E34647; -fx-background-radius: 10;" text="Reset Filters" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

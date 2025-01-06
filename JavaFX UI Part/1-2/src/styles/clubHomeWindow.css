@@ -1,0 +1,64 @@
+.window {
+    -fx-background-color: #4d4d4d;
+    -fx-text-fill: #202020;
+}
+#leftVBox {
+    -fx-background-color: #073c51;
+}
+#playerListVBox, #playerListHBox {
+    -fx-background-color: #404040;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: #1e1f22;
+    //fix the width
+    -fx-pref-width: 10;
+    -fx-min-width: 10;
+    -fx-max-width:10;
+
+}
+.scroll-bar:horizontal {
+    -fx-background-color: #1e1f22;
+    //fix the width
+    -fx-pref-width: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+
+}
+.tree-view, .tree-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #073c51;
+
+
+
+}
+
+.tree-cell:selected {
+    -fx-font-weight: bold ;
+}
+
+/*.tree-view {*/
+/*    -fx-background-color: #008080;*/
+/*}*/
+
+.menu-item .label {
+    -fx-text-fill: #1e1f22;
+}
+
+.menu-item:focused {
+    -fx-background-color: darkgray;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #003333;
+}
+
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" minHeight="-Infinity" onMouseClicked="#selectedClub" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="135.0" prefWidth="250.0" style="-fx-background-color: #0D0B46; -fx-border-color: #C63FEC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubCardController">
+   <children>
+      <ImageView fx:id="clubImage" fitHeight="135.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <image>
+            <Image url="@../images/logo/Chennai_Super_Kings.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

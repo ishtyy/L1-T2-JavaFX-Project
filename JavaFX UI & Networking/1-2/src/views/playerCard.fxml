@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="204.0" prefWidth="169.0" style="-fx-background-color: #292736; -fx-background-radius: 20; -fx-border-color: #FFFFFF; -fx-border-radius: 20;" styleClass="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerCardController">
+   <children>
+      <ImageView fx:id="clubImage" cache="true" cacheHint="SCALE" fitHeight="163.0" fitWidth="213.0" focusTraversable="true" layoutX="-2.6666666666666665" layoutY="17.0" nodeOrientation="INHERIT" opacity="0.2" pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-49.0">
+         <image>
+            <Image url="@../images/logo/Chennai_Super_Kings.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="216.0">
+         <children>
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="233.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="playerImage" fitHeight="119.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../images/logo/unknown.png" />
+                     </image>
+                  </ImageView>
+                  <Region prefHeight="119.0" prefWidth="77.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Region prefHeight="23.0" prefWidth="79.0" />
+                        <Button fx:id="playerDetailsButton" mnemonicParsing="false" onAction="#showPlayerDetails" prefWidth="61.0" style="-fx-background-color: #E67C13; -fx-background-radius: 10;" text="Details">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Region prefHeight="7.0" prefWidth="79.0" />
+                        <Button fx:id="playerSellButton" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#sellPlayer" style="-fx-background-color: #E4080A; -fx-background-radius: 10;" text="Sell" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label fx:id="playerPriceLabel" text="Price: 150,000 USD" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="81.0" prefWidth="228.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="287.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="playerNameLabel" prefHeight="24.0" prefWidth="225.0" text="MS Dhoni" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="playerPositionLabel" prefHeight="26.0" prefWidth="214.0" text="Wicket-Keeper" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Dutch 801 Extra Bold BT" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

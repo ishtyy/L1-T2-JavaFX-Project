@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="239.0" prefWidth="588.0" style="-fx-background-color: #1B1B23;" styleClass="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
+   <children>
+      <ImageView fx:id="clubImage" fitHeight="239.0" fitWidth="323.0" layoutX="263.0" opacity="0.16" pickOnBounds="true">
+         <image>
+            <Image url="@../images/logo/Chennai_Super_Kings.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerImage" fitHeight="150.0" fitWidth="161.0" layoutX="408.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@../images/logo/unknown.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="MS DHONI" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerPositionLabel" layoutX="14.0" layoutY="58.0" text="Wicket Keeper" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="180.0" text="Age: 43 years" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="Dutch 801 Extra Bold BT" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerSalaryLabel" layoutX="279.0" layoutY="205.0" text="Weekly Salary $94923123" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font name="Dutch 801 Extra Bold BT" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="205.0" text="Height: 1.83 meters" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="Dutch 801 Extra Bold BT" size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="53.0" prefWidth="417.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <Label fx:id="playerClubLabel" text="Chennai Super Kings" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <Separator orientation="VERTICAL" prefHeight="53.0" prefWidth="0.0" />
+            <Label fx:id="playerCountryLabel" text="India" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="playerNumberLabel" layoutX="412.0" layoutY="182.0" prefHeight="20.0" prefWidth="114.0" text="Jersey Number 7" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font name="Dutch 801 Extra Bold BT" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

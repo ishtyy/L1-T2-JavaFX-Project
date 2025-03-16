@@ -40,7 +40,12 @@ public class Club implements Serializable {
     }
 
     public List<Player> getPlayers() {
-        return players;
+        List<Player> playerList = new ArrayList<>();
+        for(Player p : players){
+           if(p.isInTransferList()) continue;
+            playerList.add(p);
+        }
+        return playerList;
     }
 
     public void setPlayers(List<Player> players) {

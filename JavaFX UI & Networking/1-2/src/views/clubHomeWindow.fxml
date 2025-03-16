@@ -171,7 +171,7 @@
                   <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #5F141E; -fx-border-color: #FFFFFF;" VBox.vgrow="ALWAYS">
                      <children>
                         <VBox fx:id="playerListVBox" minWidth="-Infinity" prefHeight="556.0" prefWidth="522.0" style="-fx-background-color: #13113D;" HBox.hgrow="ALWAYS" />
-                        <VBox fx:id="rightVBox" alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" style="-fx-border-color: #FFFFFF;" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="rightVBox" alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" style="-fx-border-color: #0A455A; -fx-background-color: #40256F;" HBox.hgrow="ALWAYS">
                            <children>
                               <AnchorPane layoutX="10.0" layoutY="55.0" minHeight="-Infinity" prefHeight="125.0" prefWidth="259.0" VBox.vgrow="ALWAYS">
                                  <children>

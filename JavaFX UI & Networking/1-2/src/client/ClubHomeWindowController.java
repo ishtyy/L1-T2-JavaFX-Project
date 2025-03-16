@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ClubHomeWindowController {
 
@@ -130,7 +129,7 @@ public class ClubHomeWindowController {
     Database db;
     Database dbs;
     Server server;
-
+    private List<?> transferList;
 
 
     private boolean aBoolean = false;
@@ -326,9 +325,10 @@ public class ClubHomeWindowController {
         this.notClubName = clubName;
         this.dbs = new Database();
         this.server = new Server(dbs);
+        transferList = client.loadTransferPlayserList();
 
         loadClubData();
-        dbs.addPlayer(club.getPlayers());
+        //dbs.addPlayer(club.getPlayers());
         club=dbs.getClub(clubName);
         this.notClub = club;
         initClubInfo();
@@ -360,10 +360,21 @@ public class ClubHomeWindowController {
 
     @FXML
     void showTransferWindow(ActionEvent event) {
-        if (buyPlayerButton.getText().equals("Buy Player")) {
-            client.startRefreshThread(this);
+        if(transferList.size() == 0){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("No Players");
+            a.setHeaderText("No Players in Transfer List");
+            a.setContentText("There are no players in the transfer list at the moment.");
+            a.show();
 
-            buyPlayerButton.setText("BACK");
+        }
+        else if (buyPlayerButton.getText().equals("Buy Player")) {
+
+
+                client.startRefreshThread(this);
+
+                buyPlayerButton.setText("BACK");
+
         } else {
             client.interruptRefreshThread();
 
@@ -383,7 +394,9 @@ public class ClubHomeWindowController {
                     playerList.add((Player) e);
                 }
             }
-            loadPlayerCards(playerList,clubName);
+
+
+             loadTransferPlayerCards(playerList,clubName);
         }
 
     }
@@ -472,7 +485,39 @@ public class ClubHomeWindowController {
             clubNameSecondLine1.setText("");
         }
     }
+    boolean inTransferList(Player player) {
+        for (Object e : transferList) {
+            if (e instanceof Player) {
+                if (((Player) e).getName().equals(player.getName())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
+    private void loadTransferPlayerCards(List<Player> playerList, String clubName) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/views/playerListView.fxml"));
+            Parent root = fxmlLoader.load();
+
+            PlayerListViewController playerListViewController = fxmlLoader.getController();
+            playerListViewController.setClubHomeWindowController(this);
+
+
+            playerListViewController.loadPlayerCards(playerList,clubName);
+
+
+            playerListVBox.getChildren().clear();
+            playerListVBox.getChildren().add(root);
+
+            this.playerListOnDisplay = new ArrayList<>(playerList);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // for listing players under any condition
     private void loadPlayerCards(List<Player> playerList, String clubName) {
@@ -484,13 +529,20 @@ public class ClubHomeWindowController {
 
             PlayerListViewController playerListViewController = fxmlLoader.getController();
             playerListViewController.setClubHomeWindowController(this);
-            playerListViewController.loadPlayerCards(playerList,clubName);
+
+            List<Player> UpdatedPlayerList = new ArrayList<>();
+            for(Player p : playerList){
+                if(inTransferList(p)) continue ;
+                UpdatedPlayerList.add(p);
+            }
+
+            playerListViewController.loadPlayerCards(UpdatedPlayerList,clubName);
 
             playerListVBox.getChildren().clear();
             playerListVBox.getChildren().add(root);
 
 
-           this.playerListOnDisplay = new ArrayList<>(playerList);
+           //this.playerListOnDisplay = new ArrayList<>(playerList);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -565,10 +617,12 @@ public class ClubHomeWindowController {
         client.logoutClub(this.clubName);
     }
 
-    public void sellPlayer(String playerName, long playerPrice) {
-        boolean b = client.sellPlayer(playerName, playerPrice);
+    public void sellPlayer(Player player, long playerPrice) {
+        boolean b = client.sellPlayer(player.getName(), playerPrice);
         if (b) {
-            this.club.removePlayer(playerName);
+            // set the tranferlist status to true
+            player.setInTransferList(true);
+            this.club.removePlayer(player.getName());
             makeFilterTree();
             loadPlayerCards(this.club.getPlayers(),clubName);
         }
@@ -694,6 +748,7 @@ public class ClubHomeWindowController {
             PlayerAddController playerAddController = fxmlLoader.getController();
             playerAddController.setClubHomeWindowController(this);
             playerAddController.set(client,dbs,server);
+            playerAddController.initializePlayerPositionChoiceBox();
 
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);

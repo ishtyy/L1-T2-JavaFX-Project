@@ -284,6 +284,18 @@ public class Client extends Application {
         }
         return null;
     }
+    synchronized public List<?> loadTransferPlayserList() {
+        try {
+            networkUtil.write(new Message (MessageHeader.TRANSFER_LIST, null));
+            Object obj = networkUtil.read();
+            if (obj instanceof List) {
+                return (List<?>) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     synchronized public List<?> loadTransferList() {
         try {

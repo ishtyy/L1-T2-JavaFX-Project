@@ -40,6 +40,8 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.sendClubList());
                     }else if(msg.getMessageHeader() == MessageHeader.NOTIFICATION){
                         networkUtil.write(server.getNotification(msg.getMessage()));
+                    }else if(msg.getMessageHeader() == MessageHeader.TRANSFER_LIST){
+                        networkUtil.write(server.getTransferPlayerList());
                     }
                 } else if (obj instanceof LoginInfo) {
                     LoginInfo loginInfo = (LoginInfo) obj;

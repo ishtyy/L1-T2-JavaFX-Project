@@ -75,7 +75,7 @@ public class PlayerCardController {
         }else {
             // sell
             boolean b = showPlayerSaleConfirmationWindow();
-            if (b) clubHomeWindowController.sellPlayer(player.getName(), player.getPrice());
+            if (b) clubHomeWindowController.sellPlayer(player, player.getPrice());
         }
     }
 

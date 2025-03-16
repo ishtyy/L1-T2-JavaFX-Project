@@ -22,6 +22,8 @@ public class PlayerListViewController {
 
     private ClubHomeWindowController clubHomeWindowController;
 
+
+
     // for listing players under any condition
     public void loadPlayerCards(List<Player> playerList,String clubName) {
         try {
@@ -29,6 +31,7 @@ public class PlayerListViewController {
             int col = 0;
             for (Player player : playerList) {
                 System.out.println(player);
+
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/views/playerCard.fxml"));
 

@@ -5,6 +5,7 @@ import data.database.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -21,14 +22,7 @@ import java.nio.file.Paths;
 
 public class PlayerAddController {
 
-    @FXML
-    private MenuItem batsman;
-    @FXML
-    private MenuItem bowler;
-    @FXML
-    private MenuItem allrounder;
-    @FXML
-    private MenuItem wicketkeeper;
+
     @FXML
     private TextField playerName;
 
@@ -48,7 +42,7 @@ public class PlayerAddController {
     private TextField playerNumber;
 
     @FXML
-    private TextField playerPosition;
+    private ChoiceBox<String> playerPositionChoiceBox;
 
     @FXML
     private TextField playerSalary;
@@ -92,7 +86,7 @@ public class PlayerAddController {
                     isFieldEmpty(playerCountry.getText()) ||
                     isFieldEmpty(playerHeight.getText()) ||
                     isFieldEmpty(playerAge.getText()) ||
-                    isFieldEmpty(playerPosition.getText()) ||
+                    isFieldEmpty(playerPositionChoiceBox.getValue()) ||
                     isFieldEmpty(playerNumber.getText()) ||
                     isFieldEmpty(playerSalary.getText())) {
                 showAlert(Alert.AlertType.ERROR, "All fields are required. Please fill in all values.");
@@ -114,7 +108,7 @@ public class PlayerAddController {
                     playerCountry.getText(),
                     age,
                     height,
-                    playerPosition.getText(),
+                    playerPositionChoiceBox.getValue(),
                     playerClub.getText(),
                     number,
                     (long) salary
@@ -140,6 +134,10 @@ public class PlayerAddController {
         } catch (NumberFormatException e) {
             showAlert(Alert.AlertType.ERROR, "Please enter valid numeric values for height, age, number, and salary.");
         }
+    }
+
+     void initializePlayerPositionChoiceBox() {
+        playerPositionChoiceBox.getItems().addAll("Batsman", "Bowler", "Allrounder", "Wicketkeeper");
     }
 
     // Method to add player image
@@ -218,24 +216,6 @@ public class PlayerAddController {
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "An error occurred while saving the image: " + e.getMessage());
         }
-    }
-
-    @FXML
-    void click(ActionEvent event) {
-        if(event.getSource() == batsman){
-            playerPosition.setText("Batsman");
-        }
-        if(event.getSource() == bowler){
-            playerPosition.setText("Bowler");
-        }
-        if(event.getSource() == allrounder){
-            playerPosition.setText("Allrounder");
-        }
-        if(event.getSource() == wicketkeeper){
-            playerPosition.setText("Wicketkeeper");
-        }
-
-
     }
 
 

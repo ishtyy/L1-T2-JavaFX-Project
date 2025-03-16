@@ -139,6 +139,6 @@ public class Player implements Serializable {
 
     @Override
     public String toString(){
-        return name + "," + country + "," + age + "," + height + "," + club + "," + position + "," + number + "," + salary;
+        return name + "," + country + "," + age + "," + height + "," + club + "," + position + "," + number + "," + salary ;
     }
 }
